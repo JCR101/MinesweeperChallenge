@@ -48,6 +48,7 @@ def generate_minefield(height=5, width=5, mine_probability=0.2):
     matrix = [['*' if random.random() < mine_probability else ' ' for _ in range(width)]
               for _ in range(height)]
 
+
     # Converts the matrix to string format with borders
     output_lines = ['+' + '-' * width + '+']
     for row in matrix:
@@ -56,8 +57,6 @@ def generate_minefield(height=5, width=5, mine_probability=0.2):
 
     return '\n'.join(output_lines)
 
-# Test input
-# input_str = "+-------+\n| *   * |\n| *  *  |\n|  * *  |\n|* * * *|\n| *   * |\n| *  *  |\n|  * *  |\n|* * * *|\n| *   * |\n| *  *  |\n|  * *  |\n|* * * *|\n| *   * |\n| *  *  |\n|  * *  |\n|* * * *|\n| *   * |\n| *  *  |\n|  * *  |\n|* * * *|\n+-------+"
 
 
 print(minesweeper_map(generate_minefield()))
