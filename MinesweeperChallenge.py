@@ -42,12 +42,11 @@ def minesweeper_map(input_str):
     return '\n'.join(output_lines)
 
 
-def generate_minefield(height=5, width=5, mine_probability=0.2):
+def generate_minefield(height=5, width=5, mine_probability=0.99):
 
     # Generates the random minefield matrix
     matrix = [['*' if random.random() < mine_probability else ' ' for _ in range(width)]
               for _ in range(height)]
-
 
     # Converts the matrix to string format with borders
     output_lines = ['+' + '-' * width + '+']
@@ -58,5 +57,9 @@ def generate_minefield(height=5, width=5, mine_probability=0.2):
     return '\n'.join(output_lines)
 
 
-
-print(minesweeper_map(generate_minefield()))
+# Get user input for the dimensions of the minefield
+rows = int(input("Enter the number of rows for the minefield: "))
+columns = int(input("Enter the number of columns for the minefield: "))
+mine_chance = float(input("Enter chance mine per tile from 0 to 1: "))
+# Generate and print the minefield
+print(minesweeper_map(generate_minefield(rows, columns, mine_chance)))
